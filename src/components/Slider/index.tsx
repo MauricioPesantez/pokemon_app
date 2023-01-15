@@ -1,7 +1,14 @@
 import React from "react";
 import styles from "./Slider.module.css";
 
-export default function Slider({ label, value, onChange, name }) {
+interface ISlider {
+  label: string;
+  value: any;
+  onChange: (target: any) => void;
+  name: string;
+}
+
+export default function Slider({ label, value, onChange, name }: ISlider) {
   return (
     <div className={styles.slider}>
       <label className={styles.label}>{label}</label>

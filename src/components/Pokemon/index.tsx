@@ -21,25 +21,23 @@ const pokemonDefault: IPokemon = {
 };
 
 export default function Pokemon({ pokemon, handleClose }: IPokemonProps) {
-  
   const [pokemonEdit, setPokemonEdit] = useState<IPokemon>(
     pokemon ? pokemon : pokemonDefault
   );
   const queryClient = useQueryClient();
-  
+
   const createNewpokemon = async () => await ApiClient.addPokemon(pokemonEdit);
 
   const editPokemon = async () => await ApiClient.editPokemon(pokemonEdit);
 
   const mutation = useMutation({
-    mutationFn: pokemon ? editPokemon : createNewpokemon, 
+    mutationFn: pokemon ? editPokemon : createNewpokemon,
     async onSuccess() {
       handleClose();
       await queryClient.invalidateQueries({ queryKey: ["GET_POKEMONS"] });
-
-    }
-  })
-  const handleChange = ({ target }) => {
+    },
+  });
+  const handleChange = ({ target }: any) => {
     setPokemonEdit({ ...pokemonEdit, [target.name]: target.value });
   };
 
@@ -115,7 +113,21 @@ export default function Pokemon({ pokemon, handleClose }: IPokemonProps) {
   );
 }
 
-const InputText = ({ label, type, onChangeText, value, name }) => {
+interface IInputTextProps {
+  label: string;
+  type: string;
+  value: string;
+  name: string;
+  onChangeText: (value: any) => void;
+}
+
+const InputText = ({
+  label,
+  type,
+  onChangeText,
+  value,
+  name,
+}: IInputTextProps) => {
   return (
     <div className={styles.group}>
       <input
