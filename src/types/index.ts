@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import Bug from "../../public/assets/icons/bug.svg";
 import Dark from "../../public/assets/icons/dark.svg";
 import Dragon from "../../public/assets/icons/dragon.svg";
@@ -26,6 +27,12 @@ export interface IPokemon {
   hp: number;
   type: string;
   idAutor: number;
+}
+
+export interface IDropdownOption {
+  label: string;
+  value: string;
+  icon?: any;
 }
 
 export const pokemonTypes = [

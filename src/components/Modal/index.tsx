@@ -18,7 +18,7 @@ const Modal = ({ setIsOpen, children, title, type }: IModalProps) => {
         <div
           className={styles.modal}
           style={{
-            background: `${ type ? `linear-gradient(0deg, ${showPokemon?.colors[1]} 0%, ${showPokemon?.colors[0]} 50%)` : '#fff'}`,
+            background: `linear-gradient(0deg, ${showPokemon?.colors[1]} 0%, ${showPokemon?.colors[0]} 50%)`,
           }}
         >
           {title && (

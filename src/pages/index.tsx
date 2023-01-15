@@ -8,6 +8,7 @@ import { useState } from "react";
 import Modal from "@/components/Modal";
 import Image from "next/image";
 import Logo from "../../public/assets/images/pokemon.webp";
+import Add from "../../public/assets/images/add.webp";
 import PokemonDetail from "@/components/Pokemon/PokemonDetail";
 import Pokemon from "@/components/Pokemon";
 
@@ -18,7 +19,7 @@ export default function Home() {
 
   const getPokemons = async () => await ApiClient.getPokemons();
 
-  const { data: pokemonsData, isLoading } = useQuery(
+  const { data: pokemonsData } = useQuery(
     ["GET_POKEMONS"],
     () => getPokemons(),
     {
@@ -33,16 +34,14 @@ export default function Home() {
   };
 
   const handleEditPokemon = () => {
-    setAction('edit')
-  }
+    setAction("edit");
+  };
 
   const handleClose = () => {
     setPokemon(undefined);
     setOpen(false);
     setAction(undefined);
-  }
-
-  console.log({action})
+  };
 
   return (
     <Page title="Home">
@@ -54,17 +53,32 @@ export default function Home() {
           return <Card key={index} pokemon={pokemon} handleOpen={handleOpen} />;
         })}
       </div>
-      {open && !action &&  (
+      <div className={styles.float_button}>
+        <button
+          className={styles.add}
+          onClick={() => {
+            setAction("add");
+            setOpen(true);
+          }}
+        >
+          <Image src={Add} alt="Add" width={45} />
+        </button>
+      </div>
+      {open && !action && (
         <Modal setIsOpen={handleClose} type={pokemon?.type || ""}>
-          <PokemonDetail pokemon={pokemon} edit={handleEditPokemon} close={handleClose} />
+          <PokemonDetail
+            pokemon={pokemon}
+            edit={handleEditPokemon}
+            close={handleClose}
+          />
         </Modal>
       )}
-      {open && action === 'edit' && pokemon &&  (
+      {open && action === "edit" && pokemon && (
         <Modal setIsOpen={handleClose} type={pokemon?.type || ""}>
           <Pokemon pokemon={pokemon} />
         </Modal>
       )}
-      {open && action === 'add' &&  (
+      {open && action === "add" && (
         <Modal setIsOpen={handleClose} type={pokemon?.type || ""}>
           <Pokemon pokemon={pokemon} />
         </Modal>
