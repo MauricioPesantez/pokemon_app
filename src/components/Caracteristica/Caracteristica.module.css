@@ -1,0 +1,17 @@
+.main {
+  background-color: #fff;
+  width: 60px;
+  height: 70px;
+  border-radius: 4px 8px;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 12px;
+}
+
+.attribute {
+  font-size: 18px;
+  font-weight: bold;
+}
