@@ -75,12 +75,12 @@ export default function Home() {
       )}
       {open && action === "edit" && pokemon && (
         <Modal setIsOpen={handleClose} type={pokemon?.type || ""}>
-          <Pokemon pokemon={pokemon} />
+          <Pokemon pokemon={pokemon} handleClose={handleClose} />
         </Modal>
       )}
       {open && action === "add" && (
         <Modal setIsOpen={handleClose} type={pokemon?.type || ""}>
-          <Pokemon pokemon={pokemon} />
+          <Pokemon pokemon={pokemon} handleClose={handleClose} />
         </Modal>
       )}
     </Page>

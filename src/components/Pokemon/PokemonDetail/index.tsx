@@ -80,13 +80,13 @@ function PokemonDetail({ pokemon, edit, close }: IPokemonDetailProps) {
               title="Tipo"
             />
           </div>
-          <div className={styles.modalActions}>
-            <div className={styles.actionsContainer}>
-              <button className={styles.edit} onClick={edit}>
+          <div className="modalActions">
+            <div className="actionsContainer">
+              <button className="confirmButton" onClick={edit}>
                 Editar
               </button>
               <button
-                className={styles.deleteBtn}
+                className="cancelBtn"
                 onClick={() => setOpenDelete(true)}
               >
                 Eliminar

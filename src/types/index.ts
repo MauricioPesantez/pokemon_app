@@ -19,14 +19,14 @@ import Steel from "../../public/assets/icons/steel.svg";
 import Water from "../../public/assets/icons/water.svg";
 
 export interface IPokemon {
-  id: number;
+  id?: number;
   name: string;
   image: string;
   attack: number;
   defense: number;
   hp: number;
   type: string;
-  idAutor: number;
+  idAutor?: number;
 }
 
 export interface IDropdownOption {

@@ -45,7 +45,29 @@ const ApiClient = {
     return middleware(_axios.get(`/${formatParams(params)}`));
   },
   addPokemon(pokemon) {
+    const data = {
+      name: pokemon.name,
+      image: pokemon.image,
+      attack: pokemon.attack,
+      defense: pokemon.defense,
+      hp: pokemon.hp,
+      type: pokemon.type,
+      idAuthor: 1,
+    }
     return middleware(_axios.post(`/`, data));
+  },
+  editPokemon(pokemon) {
+    const data = {
+      name: pokemon.name,
+      image: pokemon.image,
+      attack: pokemon.attack,
+      defense: pokemon.defense,
+      hp: pokemon.hp,
+      type: pokemon.type,
+      idAuthor: 1,
+    }
+    return middleware(_axios.put(`/${pokemon.id}`, data))
+
   },
   deletePokemon(pokemon) {
     return middleware(_axios.delete(`/${pokemon.id}`))
