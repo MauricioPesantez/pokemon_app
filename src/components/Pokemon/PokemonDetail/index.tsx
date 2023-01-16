@@ -1,14 +1,14 @@
 import { IPokemon } from "@/types";
-import { getBg } from "@/utils/general";
+import { getBg } from "../../../utils/general";
 import Caracteristica from "../../Caracteristica";
 import styles from "./PokemonDetail.module.css";
 import Ball from "../../../../public/assets/icons/pokebola.svg";
 import Health from "../../../../public/assets/icons/health.svg";
 import Protection from "../../../../public/assets/icons/protection.svg";
 import { useState } from "react";
-import Modal from "@/components/Modal";
-import Confirm from "@/components/Confirm";
-import ApiClient from "@/services/ApiClient";
+import Modal from "../../../components/Modal";
+import Confirm from "../../../components/Confirm";
+import ApiClient from "../../../services/ApiClient";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 interface IPokemonDetailProps {

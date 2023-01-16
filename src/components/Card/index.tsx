@@ -1,5 +1,5 @@
 import { IPokemon } from "@/types";
-import { getBg } from "@/utils/general";
+import { getBg } from "../../utils/general";
 import styles from "@/styles/Card.module.css";
 import Image from "next/image";
 

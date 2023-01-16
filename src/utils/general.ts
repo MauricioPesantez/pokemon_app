@@ -1,4 +1,4 @@
-import { pokemonTypes } from "@/types";
+import { pokemonTypes } from "../types";
 import Normal from "../../public/assets/icons/normal.svg";
 
 export const getBg = (type: any) => {

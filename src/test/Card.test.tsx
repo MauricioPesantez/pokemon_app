@@ -1,23 +1,46 @@
-import { describe, test, expect } from "vitest";
+import PokemonDetail from "../components/Pokemon/PokemonDetail";
 import { render, screen } from "@testing-library/react";
-import Card from "../components/Card";
+import userEvent from "@testing-library/user-event";
+import Card from "../components/Card/index";
 
-describe("Card", () => {
-  test("should render card", () => {
-    render(
-      <Card
-        pokemon={{
-          attack: 10,
-          defense: 10,
-          hp: 10,
-          image: "https://img.pokemondb.net/artwork/pikachu.jpg",
-          name: "Pikapika",
-          type: "Electrico",
-          id: 999,
-        }}
-        handleOpen={() => {}}
-      />
-    );
-    expect(screen.getByText("Pikapika")).toBeDefined();
-  });
+it("showbe render", () => {
+  render(
+    <Card
+      handleOpen={() => {}}
+      pokemon={{
+        attack: 99,
+        defense: 50,
+        hp: 10,
+        id: 69,
+        image: "https://",
+        name: "pikapika",
+        type: "Electrico",
+      }}
+    />
+  );
+  expect(screen.getByText("pikapika"));
+  expect(screen.getByText("#69"));
+
+});
+
+it("should be render and delete pokemon", () => {
+  render(
+    <PokemonDetail
+      close={() => {}}
+      edit={() => {}}
+      pokemon={{
+        attack: 99,
+        defense: 50,
+        hp: 10,
+        id: 69,
+        image: "https://",
+        name: "pikapika",
+        type: "Electrico",
+      }}
+    />
+  );
+  expect(screen.getByText("pikapika"));
+  expect(screen.getByText("#69"));
+  userEvent.click(screen.getByText("Eliminar"));
+  expect(screen.getByText("Estas seguro de eliminar este pokemon"));
 });

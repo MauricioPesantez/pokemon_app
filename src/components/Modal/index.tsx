@@ -1,4 +1,4 @@
-import { getBg } from "@/utils/general";
+import { getBg } from "../../utils/general";
 import { ReactNode, useState } from "react";
 import styles from "./Modal.module.css";
 
